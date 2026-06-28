@@ -1,0 +1,11 @@
+{
+  "name": "DS Solid Construction",
+  "short_name": "DS Solid",
+  "icons": [
+    { "src": "/android-chrome-192x192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "/android-chrome-512x512.png", "sizes": "512x512", "type": "image/png" }
+  ],
+  "theme_color": "#F00102",
+  "background_color": "#ffffff",
+  "display": "standalone"
+}
