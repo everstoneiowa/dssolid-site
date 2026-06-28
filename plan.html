@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Floor Plan | DS Solid Construction</title>
+<meta name="description" content="Floor plan details from DS Solid Construction, a custom home builder in central Iowa." />
+<meta name="robots" content="index,follow" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Expanded:wght@500;600;700;800&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&family=Spline+Sans+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --ink:#141414;--ink-soft:#2A2A2A;--bg:#FAFAFA;--surface:#FFFFFF;
+    --brass:#E10600;--brass-light:#FF3B30;--red-deep:#B00400;
+    --stone:#5C5C5E;--line:#E7E7E7;--line-dark:#2C2C2C;
+    --display:"Archivo Expanded", system-ui, sans-serif;
+    --body:"Newsreader", Georgia, serif;
+    --mono:"Spline Sans Mono", ui-monospace, monospace;
+    --maxw:1240px;--gut:clamp(20px,5vw,72px);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+  body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:18px;line-height:1.62;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  img{display:block;max-width:100%}
+  a{color:inherit;text-decoration:none}
+  ::selection{background:var(--brass);color:#fff}
+
+  .wrap{max-width:var(--maxw);margin:0 auto;padding-inline:var(--gut)}
+  .label{font-family:var(--mono);font-size:12px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:var(--brass)}
+  .display{font-family:var(--display);font-weight:700;line-height:1.02;letter-spacing:-.015em}
+  .btn{display:inline-flex;align-items:center;gap:.6em;font-family:var(--mono);font-size:13px;font-weight:500;letter-spacing:.05em;text-transform:uppercase;padding:15px 26px;border:1px solid var(--ink);background:var(--ink);color:var(--bg);transition:transform .25s ease,background .25s ease,color .25s ease;cursor:pointer}
+  .btn:hover{background:var(--brass);border-color:var(--brass);color:#fff;transform:translateY(-2px)}
+  .btn--ghost{background:transparent;color:var(--ink);border-color:var(--line-dark)}
+  .btn--ghost:hover{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+  .btn .arr{transition:transform .25s ease}
+  .btn:hover .arr{transform:translateX(4px)}
+
+  /* announcement */
+  .anno{background:var(--ink);color:var(--bg);font-family:var(--mono);font-size:12.5px;letter-spacing:.08em;text-align:center;padding:9px 16px}
+  .anno a{color:var(--brass-light);border-bottom:1px solid transparent;transition:border-color .2s}
+  .anno a:hover{border-color:var(--brass-light)}
+  .anno .dot{color:var(--brass);margin:0 .55em}
+
+  /* header */
+  header{position:sticky;top:0;z-index:60;background:rgba(250,250,250,.86);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+  .nav{display:flex;align-items:center;justify-content:space-between;height:74px}
+  .brand{display:flex;align-items:center;gap:.5em}
+  .brandlogo{display:block;width:auto;height:50px}
+  .mmenu .top .brandlogo{height:44px}
+  .foot .brandlogo{height:68px}
+  @media (max-width:560px){.brandlogo{height:40px}}
+  .navlinks{display:flex;align-items:center;gap:30px}
+  .navlinks a{font-family:var(--mono);font-size:13px;letter-spacing:.04em;text-transform:uppercase;color:var(--ink-soft);position:relative;padding:4px 0;transition:color .2s}
+  .navlinks a::after{content:"";position:absolute;left:0;bottom:-2px;width:0;height:1.5px;background:var(--brass);transition:width .28s ease}
+  .navlinks a:hover{color:var(--brass)}
+  .navlinks a:hover::after,.navlinks a.active::after{width:100%}
+  .navlinks a.active{color:var(--brass)}
+  .navlinks .cta{border:1px solid var(--ink);padding:10px 18px;color:var(--ink)}
+  .navlinks .cta::after{display:none}
+  .navlinks .cta:hover{background:var(--ink);color:var(--bg)}
+  .burger{display:none;flex-direction:column;gap:5px;background:none;border:0;cursor:pointer;padding:8px}
+  .burger span{width:24px;height:2px;background:var(--ink);transition:.3s}
+
+  /* mobile menu */
+  .mmenu{position:fixed;inset:0;z-index:90;background:var(--ink);color:var(--bg);transform:translateY(-100%);transition:transform .45s cubic-bezier(.7,0,.2,1);display:flex;flex-direction:column;padding:28px var(--gut)}
+  .mmenu.open{transform:translateY(0)}
+  .mmenu .top{display:flex;justify-content:space-between;align-items:center;margin-bottom:48px}
+  .mclose{background:none;border:0;color:var(--bg);font-family:var(--mono);font-size:26px;cursor:pointer;line-height:1}
+  .mmenu nav{display:flex;flex-direction:column;gap:2px;margin-top:8px}
+  .mmenu nav a{font-family:var(--display);font-weight:700;font-size:clamp(30px,9vw,46px);padding:14px 0;border-bottom:1px solid var(--line-dark);display:flex;align-items:baseline;gap:14px}
+  .mmenu nav a .n{font-family:var(--mono);font-size:12px;color:var(--brass);font-weight:500}
+  .mmenu .mfoot{margin-top:auto;font-family:var(--mono);font-size:13px;color:#9A9A9A;letter-spacing:.04em;line-height:1.9}
+  .mmenu .mfoot a{color:var(--brass-light)}
+
+  /* detail header */
+  .phead{border-bottom:1px solid var(--line);background:var(--surface)}
+  .phead .wrap{padding-block:clamp(34px,5vw,56px)}
+  .crumb{font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--stone);margin-bottom:22px}
+  .crumb a:hover{color:var(--brass)}
+  .phead .ptype{color:var(--brass);display:inline-flex;align-items:center;gap:12px;margin-bottom:14px}
+  .phead .roof{width:40px;height:15px;flex:none}
+  .phead h1{font-family:var(--display);font-weight:700;font-size:clamp(38px,6vw,72px);line-height:1;letter-spacing:-.02em}
+  .phead .ptag{color:var(--ink-soft);font-size:clamp(18px,2vw,21px);margin-top:16px;max-width:60ch}
+
+  /* specs */
+  .pspecs{display:flex;flex-wrap:wrap;gap:18px 40px;margin-top:30px;padding-top:24px;border-top:1px solid var(--line)}
+  .pspec{display:flex;flex-direction:column;gap:4px}
+  .pspec .v{font-family:var(--display);font-weight:700;font-size:clamp(24px,3vw,32px);line-height:1;letter-spacing:-.01em}
+  .pspec .k{font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--stone)}
+  .pfeatures{display:flex;flex-wrap:wrap;gap:9px;margin-top:22px}
+  .pchip{font-family:var(--mono);font-size:11.5px;letter-spacing:.04em;text-transform:uppercase;color:var(--ink-soft);border:1px solid var(--line);padding:7px 13px;background:var(--surface)}
+
+  /* gallery */
+  section.block{padding-block:clamp(48px,7vw,88px)}
+  .pgallery{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+  .pgallery .gitem{position:relative;overflow:hidden;background:var(--ink);cursor:pointer;aspect-ratio:4/3}
+  .pgallery .gitem.lead{grid-column:1/-1;aspect-ratio:16/9}
+  .pgallery .gitem img{width:100%;height:100%;object-fit:cover;transition:transform .7s cubic-bezier(.2,.7,.2,1);opacity:.97}
+  .pgallery .gitem:hover img{transform:scale(1.04);opacity:1}
+  .pgallery .gitem::after{content:"⤢";position:absolute;right:12px;bottom:10px;font-family:var(--mono);font-size:14px;color:#fff;background:rgba(18,18,18,.6);padding:5px 9px;opacity:0;transition:.3s}
+  .pgallery .gitem:hover::after{opacity:1}
+
+  .pdesc{max-width:70ch;margin-top:44px}
+  .pdesc h2{font-family:var(--display);font-weight:700;font-size:clamp(22px,3vw,30px);letter-spacing:-.015em;margin-bottom:16px}
+  .pdesc p{color:var(--ink-soft);margin-bottom:16px}
+
+  .pcta{display:flex;gap:14px;flex-wrap:wrap;margin-top:44px;padding-top:32px;border-top:1px solid var(--line)}
+
+  .notfound{padding-block:clamp(60px,10vw,120px);text-align:center}
+  .notfound h1{font-family:var(--display);font-weight:700;font-size:clamp(30px,5vw,52px);letter-spacing:-.015em;margin-bottom:18px}
+  .notfound p{color:var(--stone);margin-bottom:28px}
+
+  /* editor note (only shows when a plan still needs content) */
+  .editnote{background:#FFF4F3;border:1px solid #F6C9C6;border-left:3px solid var(--brass);padding:14px 18px;margin-top:30px;font-family:var(--mono);font-size:12.5px;line-height:1.6;color:#7A2420}
+
+  /* footer */
+  footer{background:var(--ink);color:var(--bg);padding-block:clamp(56px,7vw,84px) 30px;border-top:1px solid var(--line-dark)}
+  .foot{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:42px}
+  .foot .brand{margin-bottom:16px}
+  .foot p.blurb{color:#9A9A9A;max-width:38ch;font-size:16px}
+  .foot h4{font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--brass-light);margin-bottom:18px}
+  .foot ul{list-style:none;display:grid;gap:11px}
+  .foot a{color:#CFCFCF;font-family:var(--mono);font-size:14px;letter-spacing:.02em;transition:color .2s}
+  .foot a:hover{color:var(--brass-light)}
+  .foot .contact span{display:block;color:#9A9A9A;font-family:var(--mono);font-size:13px;margin-bottom:4px}
+  .foot .socials{display:flex;gap:12px;margin-top:18px}
+  .foot .socials a{width:40px;height:40px;border:1px solid var(--line-dark);display:flex;align-items:center;justify-content:center;color:#CFCFCF}
+  .foot .socials a:hover{background:var(--brass);border-color:var(--brass);color:#fff}
+  .footbar{display:flex;justify-content:space-between;align-items:center;gap:16px;margin-top:54px;padding-top:24px;border-top:1px solid var(--line-dark);flex-wrap:wrap}
+  .footbar p{font-family:var(--mono);font-size:12px;letter-spacing:.04em;color:#777777}
+
+  /* lightbox */
+  .lb{position:fixed;inset:0;z-index:120;background:rgba(12,12,12,.96);display:none;align-items:center;justify-content:center}
+  .lb.open{display:flex}
+  .lb img{max-width:90vw;max-height:84vh;object-fit:contain}
+  .lb__btn{position:absolute;background:none;border:0;color:#fff;font-family:var(--mono);cursor:pointer;user-select:none}
+  .lb__close{top:22px;right:26px;font-size:30px}
+  .lb__nav{top:50%;transform:translateY(-50%);font-size:44px;padding:12px 20px;opacity:.7;transition:opacity .2s}
+  .lb__nav:hover{opacity:1}
+  .lb__prev{left:8px}.lb__next{right:8px}
+  .lb__count{position:absolute;bottom:22px;left:50%;transform:translateX(-50%);font-family:var(--mono);font-size:12px;letter-spacing:.1em;color:#cfc8bd}
+
+  @media (max-width:1000px){
+    .navlinks{display:none}.burger{display:flex}
+    .foot{grid-template-columns:1fr 1fr;gap:34px}.foot .fbrand{grid-column:1/-1}
+  }
+  @media (max-width:560px){
+    body{font-size:17px}
+    .pgallery{grid-template-columns:1fr}
+    .pgallery .gitem.lead{aspect-ratio:4/3}
+    .foot{grid-template-columns:1fr}
+    .footbar{flex-direction:column;align-items:flex-start}
+  }
+  :focus-visible{outline:2px solid var(--brass);outline-offset:3px}
+</style>
+</head>
+<body>
+
+<!-- announcement -->
+<div class="anno">
+  Open houses every Sunday, 1 to 4 pm
+  <span class="dot">/</span>
+  <a href="available-homes.html">See available homes →</a>
+</div>
+
+<!-- header -->
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="index.html"><img class="brandlogo" src="ds-solid-logo.png" alt="DS Solid Construction"></a>
+    <nav class="navlinks">
+      <a href="available-homes.html">Available Homes</a>
+      <a href="floor-plans.html" class="active">Floor Plans</a>
+      <a href="index.html#work">Our Work</a>
+      <a href="about.html">About</a>
+      <a class="cta" href="contact.html">Contact</a>
+    </nav>
+    <button class="burger" id="burger" aria-label="Open menu"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<!-- mobile menu -->
+<div class="mmenu" id="mmenu">
+  <div class="top">
+    <span class="brand"><img class="brandlogo" src="ds-solid-logo-white.png" alt="DS Solid Construction"></span>
+    <button class="mclose" id="mclose" aria-label="Close menu">✕</button>
+  </div>
+  <nav>
+    <a href="index.html"><span class="n">00</span>Home</a>
+    <a href="available-homes.html"><span class="n">01</span>Available Homes</a>
+    <a href="floor-plans.html"><span class="n">02</span>Floor Plans</a>
+    <a href="index.html#work"><span class="n">03</span>Our Work</a>
+    <a href="about.html"><span class="n">04</span>About</a>
+    <a href="contact.html"><span class="n">05</span>Contact</a>
+  </nav>
+  <div class="mfoot">
+    Call <a href="tel:5154181025">515-418-1025</a><br>
+    <a href="mailto:dssolidconstruction@gmail.com">dssolidconstruction@gmail.com</a><br>
+    Central Iowa
+  </div>
+</div>
+
+<!-- detail content (filled by JS from the PLANS data below) -->
+<main id="planMain"></main>
+
+<!-- footer -->
+<footer>
+  <div class="wrap">
+    <div class="foot">
+      <div class="fbrand">
+        <div class="brand"><img class="brandlogo" src="ds-solid-logo-white.png" alt="DS Solid Construction"></div>
+        <p class="blurb">Custom home builder serving central Iowa since 2005. Over 1,600 homes built, and we are just getting started.</p>
+        <div class="socials">
+          <a href="https://www.facebook.com/DSSolidConstruction/" aria-label="Facebook" target="_blank" rel="noopener"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M22 12a10 10 0 1 0-11.6 9.9v-7H7.9V12h2.5V9.8c0-2.5 1.5-3.9 3.8-3.9 1.1 0 2.2.2 2.2.2v2.5h-1.2c-1.2 0-1.6.8-1.6 1.6V12h2.7l-.4 2.9h-2.3v7A10 10 0 0 0 22 12z"/></svg></a>
+          <a href="https://www.instagram.com/ds_solid_construction/" aria-label="Instagram" target="_blank" rel="noopener"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a>
+        </div>
+      </div>
+      <div>
+        <h4>Explore</h4>
+        <ul>
+          <li><a href="available-homes.html">Available Homes</a></li>
+          <li><a href="floor-plans.html">Floor Plans</a></li>
+          <li><a href="index.html#work">Our Work</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Inquiries</h4>
+        <ul class="contact">
+          <li><span>Call</span><a href="tel:5154181025">515-418-1025</a></li>
+          <li><span>Email</span><a href="mailto:dssolidconstruction@gmail.com">dssolidconstruction@gmail.com</a></li>
+          <li><span>Open houses</span><a href="available-homes.html">Sundays, 1 to 4 pm</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footbar">
+      <p>© <span id="yr"></span> DS Solid Construction. All rights reserved.</p>
+      <p>Central Iowa · Established 2005</p>
+    </div>
+  </div>
+</footer>
+
+<!-- lightbox -->
+<div class="lb" id="lb" aria-hidden="true">
+  <button class="lb__btn lb__close" id="lbClose" aria-label="Close">✕</button>
+  <button class="lb__btn lb__nav lb__prev" id="lbPrev" aria-label="Previous">‹</button>
+  <img id="lbImg" src="" alt="">
+  <button class="lb__btn lb__nav lb__next" id="lbNext" aria-label="Next">›</button>
+  <div class="lb__count" id="lbCount"></div>
+</div>
+
+<script>
+  document.getElementById('yr').textContent = new Date().getFullYear();
+  const mmenu = document.getElementById('mmenu');
+  document.getElementById('burger').addEventListener('click',()=>mmenu.classList.add('open'));
+  document.getElementById('mclose').addEventListener('click',()=>mmenu.classList.remove('open'));
+  mmenu.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>mmenu.classList.remove('open')));
+
+  /* =====================================================================
+     PLAN DATA  ->  one entry per floor plan.
+
+     To finish a plan, fill in its entry:
+       images: add more photo URLs (the first one is the lead image).
+               Self-host by saving a photo next to this file and using
+               "azalea-i-2.webp", etc. The starter photo loads from the
+               existing site for now.
+       blurb:  paste the plan description (one or more sentences).
+       specs:  beds, baths, sqft, garage, stories  (any you have).
+
+     The plan card on floor-plans.html links here with ?plan=<the key>.
+  ===================================================================== */
+  const W = id => `https://static.wixstatic.com/media/${id}`;
+
+  const PLANS = {
+    "azalea-i": {
+      name: "Azalea I",
+      type: "Azalea series",
+      blurb: "",
+      specs: { beds:5, baths:3, sqft:"2,750", garage:3 },
+      features: ["Covered deck","Main level fireplace","Basement fireplace","LVP flooring"],
+      images: [
+        W("897ea9_caff0f3726874c838df3d4cc14a88fbf~mv2.webp"),
+        W("897ea9_77c0657a02524f6599c303eee0518bb2~mv2.webp"),
+        W("897ea9_53973ee58aa3498686dc6c1725f037ac~mv2.webp"),
+        W("897ea9_7f312eb559e847b08928aef3dd15203c~mv2.webp"),
+        W("897ea9_acaece3092934ef5a19968dd78e6fc3c~mv2.webp"),
+        W("897ea9_f44cc7c247c64068a802a3500dc6ecdd~mv2.webp"),
+        W("897ea9_38ee7009f15242fe9e1d444a9c28f54d~mv2.webp"),
+        W("897ea9_192fe4c6af884cc3b36058e17a56f782~mv2.webp"),
+        W("897ea9_6cf93253ff014277a284fe55f643962b~mv2.webp"),
+        W("897ea9_f84b1591cf23487985f7695364567ebc~mv2.webp"),
+        W("897ea9_21df805b71a745c2824bbedb6e0b7169~mv2.webp"),
+        W("897ea9_97c0eee959e949129be2a294532e3f88~mv2.webp"),
+        W("897ea9_393c2b662b8f458c9e0328ad91cdef98~mv2.webp"),
+        W("897ea9_5cd2e09c9f1e460b8d0b9df5652dd04c~mv2.webp"),
+        W("897ea9_8c03a418866c4ea48572ee94ba7c2dd3~mv2.webp"),
+        W("897ea9_b74fb1d544844b6789ef40eaea2555d6~mv2.webp"),
+        W("897ea9_7005d5a2c10743eab9367cb2d76854f3~mv2.webp"),
+        W("897ea9_544caacdc10d449c9fcf49f43e9e735e~mv2.webp"),
+        W("897ea9_792a104c3cfe41528e9f26e60125ce1d~mv2.webp"),
+        W("897ea9_cdea9615adb94d0bacdb9d3114a69347~mv2.webp"),
+        W("897ea9_735078f4fd4c4a769fac62e11f706751~mv2.webp"),
+        W("897ea9_ad1a2e696e464f16bcc24b28fa4041d0~mv2.webp"),
+        W("897ea9_17068840f70a4074b5e7fdf63acbd08f~mv2.webp"),
+        W("897ea9_6a4577880f744916943528ca3675be0d~mv2.webp"),
+        W("897ea9_c2b5c56493c245599659d16a133b48b7~mv2.webp")
+      ]
+    },
+    "azalea-ii": {
+      name: "Azalea II",
+      type: "Azalea series",
+      blurb: "",
+      specs: { beds:5, baths:3, sqft:"2,800", garage:3 },
+      features: ["Covered deck","Main level fireplace","Basement fireplace","LVP flooring"],
+      images: [
+        W("897ea9_d2ecfb72e07a4019885a5693ffd1b166~mv2.webp"),
+        W("897ea9_47889919088d4e9798aada73b66e3695~mv2.webp"),
+        W("897ea9_437d70f11c144cc2ad54d22e59d335f7~mv2.webp"),
+        W("897ea9_0e01138283084d1e9b6d4973ae97e100~mv2.webp"),
+        W("897ea9_742fdf4cbec643cdb0130ed089325cac~mv2.webp"),
+        W("897ea9_d5cee8c26d81427ba0bdc7ceb1199512~mv2.webp"),
+        W("897ea9_602d3220abeb4f6d9adbbdaa0b3c7d5b~mv2.webp"),
+        W("897ea9_51cbe660d90f4a25b025386aa7a48b69~mv2.webp"),
+        W("897ea9_16f5728373b74ec2ae9937a357043715~mv2.webp"),
+        W("897ea9_4b6a90f3910f45488cccdddb2a72ff6c~mv2.webp"),
+        W("897ea9_a24af3d4482f410aa136480c99114cfe~mv2.webp"),
+        W("897ea9_6ebf395d820f4a50b3f101169429b423~mv2.webp"),
+        W("897ea9_21d3ac9a93744fb19c2a605bb61ffff9~mv2.webp"),
+        W("897ea9_e8bc6aa036eb49cf950fa1980457e6f5~mv2.webp"),
+        W("897ea9_0258c17d0175474ba2667420ee4c3cb5~mv2.webp"),
+        W("897ea9_13ae275205e642e1b72ae7daac8fb76e~mv2.webp"),
+        W("897ea9_0b078614dc9a47209c71d67a2ff86e88~mv2.webp")
+      ]
+    },
+    "azalea-iv": {
+      name: "Azalea IV",
+      type: "Azalea series",
+      blurb: "",
+      specs: { beds:5, baths:3, sqft:"3,203", garage:5 },
+      features: ["Covered deck","Extra deep garage","Main level fireplace","Basement fireplace","LVP flooring","10' & 11' ceilings","Luxury trim package"],
+      images: [
+        W("897ea9_5f464322a2ea4b47918d2bb9dc19b869~mv2.webp"),
+        W("897ea9_c63fcbc1618c42c9b6b5fc68418074b3~mv2.webp"),
+        W("897ea9_a0d9c432462348f1ab3b559e8a86bfc0~mv2.webp"),
+        W("897ea9_e354376fad2448ef9eb13bbd6de11833~mv2.webp"),
+        W("897ea9_bb59c4291e17433ca4ed0184266c7ff8~mv2.webp"),
+        W("897ea9_08ef12c749164158bbe5d1dc23b69d23~mv2.webp"),
+        W("897ea9_8295ea00ee414a8893232b861e24c9e9~mv2.webp"),
+        W("897ea9_a5af4fb457e448c09dc31f3246044296~mv2.webp"),
+        W("897ea9_598cc4e6d33d4281b0e9e258af9a7e31~mv2.webp"),
+        W("897ea9_f2802295e4b4452db18f0d47a38aefbc~mv2.webp")
+      ]
+    },
+    "bismarck": {
+      name: "Bismarck",
+      type: "DS Solid floor plan",
+      blurb: "",
+      specs: { beds:5, baths:3, sqft:"2,853", garage:3 },
+      features: ["Covered deck","Main level fireplace","Basement fireplace","LVP flooring"],
+      images: [
+        W("897ea9_76f60b41d86645b6b57b5988be83488c~mv2.jpg"),
+        W("897ea9_2cd782a3d0144c35a2cd1acc41764fd1~mv2.jpg"),
+        W("897ea9_78a0d53860be4af5851cc569b657b39e~mv2.jpg"),
+        W("897ea9_06f4fdf522d449e3af9291a7706e87c1~mv2.jpg"),
+        W("897ea9_804f816f80ba4a0ba5abd276f3857d07~mv2.jpg"),
+        W("897ea9_74e4b556995b4b5885de1c5caf9b5042~mv2.jpg"),
+        W("897ea9_dc05d7cbfd994ba2be0e16a5b8c4cae2~mv2.jpg"),
+        W("897ea9_6f071bb3b4574c468a07b7f6b0cd913b~mv2.jpg"),
+        W("897ea9_b311a593374d4e52a3e978dc88095e32~mv2.jpg"),
+        W("897ea9_feab92e70c924b42a07aa07464366268~mv2.jpg"),
+        W("897ea9_8ffef0ffec3c4ae0b3265ea0e76e3007~mv2.jpg"),
+        W("897ea9_8ebcd4a1c8794035bb7cce1483775473~mv2.jpg"),
+        W("897ea9_b4781488deba402f8aaef3058e153fce~mv2.jpg"),
+        W("897ea9_bfe734f71c2041b089b8bcb23d9f3fa6~mv2.jpg"),
+        W("897ea9_3c092d04be644fa487be46d014f397b9~mv2.jpg"),
+        W("897ea9_6439a292fde14f9f9aed6441cd1ca1a8~mv2.jpg"),
+        W("897ea9_fffa8e23a5be4f8d84b71a525a1e231b~mv2.jpg"),
+        W("897ea9_77ad94a229454e6eae1ca46e73c1d485~mv2.jpg")
+      ]
+    },
+    "lilly-ii": {
+      name: "Lilly II",
+      type: "DS Solid floor plan",
+      blurb: "",
+      specs: { beds:5, baths:3, sqft:"3,000", garage:3 },
+      features: ["Covered deck","Main level fireplace","Basement fireplace","LVP flooring"],
+      images: [
+        W("897ea9_5bec08e8adae4726bba6e9ed0cd03996~mv2.jpg"),
+        W("897ea9_5b63607fac454515be87fdd52ce4f547~mv2.jpg"),
+        W("897ea9_f7b6ae3d50bf4c35a65a42e31d04f2b5~mv2.jpg"),
+        W("897ea9_d384579ecfb145769cd2494fd379df79~mv2.jpg"),
+        W("897ea9_1f398e2b62ee4bb090fe0a94baa39cf5~mv2.jpg"),
+        W("897ea9_d1d017e3e00e406fbcb9f8c0749696c0~mv2.jpg"),
+        W("897ea9_6ec925cded6642aea7d3aad455fca567~mv2.jpg"),
+        W("897ea9_e57ebab2b9834b5f9e033cb00a40349a~mv2.jpg"),
+        W("897ea9_e6b24d1fb0064799b1c13d9a58275fb4~mv2.jpg"),
+        W("897ea9_43d5f1497a474c6b9787ae0ea78571fa~mv2.jpg"),
+        W("897ea9_dacb6feb122b45eeaafcea8b9daaed37~mv2.jpg"),
+        W("897ea9_542dffa671de46a9bdd65ed5a452234d~mv2.jpg"),
+        W("897ea9_4cfa51186bf149aeb57c5689e38b6648~mv2.jpg"),
+        W("897ea9_d5d341d544a2429cbe72c38a110c6133~mv2.jpg"),
+        W("897ea9_2ea2a9f9dd0e410eb1a6d859fd7582c2~mv2.jpg"),
+        W("897ea9_5c434cc6fa7f4b72935b19d6f3250adc~mv2.jpg"),
+        W("897ea9_e8faefb0e3db4243b0b44a4358e31d46~mv2.jpg")
+      ]
+    },
+    "poppe": {
+      name: "Poppe",
+      type: "DS Solid floor plan",
+      blurb: "",
+      specs: { beds:5, baths:3, sqft:"2,900", garage:3 },
+      features: ["Covered deck","Main level fireplace","Basement fireplace","LVP flooring"],
+      images: [
+        W("897ea9_bc5613455dc94db5a9cea2f580da6e21~mv2.jpg"),
+        W("897ea9_b70a29c8e72d4b7ca649a2d2a93097f9~mv2.jpg"),
+        W("897ea9_76b08a249eff41728e90729a4db73e32~mv2.jpg"),
+        W("897ea9_d39d7c646a1744a2aad2fb46c0c67f52~mv2.jpg"),
+        W("897ea9_7a1312ac8781415c868a58dfca2d2696~mv2.jpg"),
+        W("897ea9_ce8e9f310a524e79bd4868a3edb2b7b9~mv2.jpg"),
+        W("897ea9_f2b42d1a0c6141d0bc5432ea3d016e61~mv2.jpg"),
+        W("897ea9_2df021d11b2e4ac7a01b5ac38d9d8c20~mv2.jpg"),
+        W("897ea9_a4e62ceecdca4e2585ff76fb0b8a937f~mv2.jpg")
+      ]
+    }
+  };
+
+  // helpers
+  const params = new URLSearchParams(location.search);
+  const key = (params.get('plan') || '').toLowerCase();
+  const plan = PLANS[key];
+  const main = document.getElementById('planMain');
+  const esc = s => String(s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+
+  function specRow(specs){
+    const order = [['beds','Beds'],['baths','Baths'],['sqft','Sq Ft'],['garage','Car Garage'],['stories','Stories']];
+    const cells = order.filter(([k])=>specs[k]!=null && specs[k]!=='').map(([k,label])=>
+      `<div class="pspec"><span class="v">${esc(specs[k])}</span><span class="k">${label}</span></div>`).join('');
+    return cells ? `<div class="pspecs">${cells}</div>` : '';
+  }
+
+  function featureRow(features){
+    if(!features || !features.length) return '';
+    return `<div class="pfeatures">${features.map(x=>`<span class="pchip">${esc(x)}</span>`).join('')}</div>`;
+  }
+
+  if (!plan){
+    main.innerHTML = `<div class="wrap notfound">
+      <h1 class="display">Plan not found</h1>
+      <p>We could not find that floor plan. Browse all of our plans instead.</p>
+      <a class="btn" href="floor-plans.html">View all floor plans <span class="arr">→</span></a>
+    </div>`;
+  } else {
+    document.title = `${plan.name} | DS Solid Construction`;
+    const imgs = plan.images || [];
+    const hasBlurb = plan.blurb && plan.blurb.trim();
+    const needsContent = (imgs.length <= 1) && !hasBlurb && !(plan.features && plan.features.length);
+
+    const galleryHtml = imgs.length ? `
+      <section class="block"><div class="wrap">
+        <div class="pgallery" id="pgallery">
+          ${imgs.map((src,i)=>`<div class="gitem ${i===0?'lead':''}" data-i="${i}"><img src="${esc(src)}" alt="${esc(plan.name)} plan photo ${i+1}" loading="${i===0?'eager':'lazy'}"></div>`).join('')}
+        </div>
+        ${hasBlurb ? `<div class="pdesc"><h2 class="display">About the ${esc(plan.name)}</h2>${plan.blurb.split('\n').filter(Boolean).map(p=>`<p>${esc(p)}</p>`).join('')}</div>` : ''}
+        ${needsContent ? `<div class="editnote">Editor note (delete when done): this plan still needs ${imgs.length<=1?'more photos':''}${(imgs.length<=1 && !hasBlurb)?' and ':''}${!hasBlurb?'a description':''}. Add them in the PLANS data near the bottom of plan.html.</div>` : ''}
+        <div class="pcta">
+          <a class="btn" href="contact.html">Request details on this plan <span class="arr">→</span></a>
+          <a class="btn btn--ghost" href="floor-plans.html">Back to all plans</a>
+        </div>
+      </div></section>` : '';
+
+    main.innerHTML = `
+      <section class="phead"><div class="wrap">
+        <div class="crumb"><a href="index.html">Home</a> / <a href="floor-plans.html">Floor Plans</a> / ${esc(plan.name)}</div>
+        <span class="ptype label"><svg class="roof" viewBox="0 0 44 17" fill="none" aria-hidden="true"><path d="M2 15L22 3l20 12" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/></svg>${esc(plan.type||'Floor plan')}</span>
+        <h1 class="display">${esc(plan.name)}</h1>
+        ${plan.tagline ? `<p class="ptag">${esc(plan.tagline)}</p>` : ''}
+        ${specRow(plan.specs||{})}
+        ${featureRow(plan.features||[])}
+      </div></section>
+      ${galleryHtml}`;
+
+    // lightbox
+    const lb=document.getElementById('lb'), lbImg=document.getElementById('lbImg'), lbCount=document.getElementById('lbCount');
+    let cur=0;
+    const show=i=>{cur=(i+imgs.length)%imgs.length;lbImg.src=imgs[cur];lbImg.alt=plan.name+' photo '+(cur+1);lbCount.textContent=`${String(cur+1).padStart(2,'0')} / ${String(imgs.length).padStart(2,'0')}`;};
+    const open=i=>{show(i);lb.classList.add('open');lb.setAttribute('aria-hidden','false');};
+    const close=()=>{lb.classList.remove('open');lb.setAttribute('aria-hidden','true');lbImg.src='';};
+    const pg=document.getElementById('pgallery');
+    if(pg){pg.addEventListener('click',e=>{const g=e.target.closest('.gitem');if(g)open(+g.dataset.i);});}
+    document.getElementById('lbClose').addEventListener('click',close);
+    document.getElementById('lbPrev').addEventListener('click',e=>{e.stopPropagation();show(cur-1);});
+    document.getElementById('lbNext').addEventListener('click',e=>{e.stopPropagation();show(cur+1);});
+    lb.addEventListener('click',e=>{if(e.target===lb)close();});
+    document.addEventListener('keydown',e=>{if(!lb.classList.contains('open'))return;if(e.key==='Escape')close();if(e.key==='ArrowLeft')show(cur-1);if(e.key==='ArrowRight')show(cur+1);});
+  }
+</script>
+</body>
+</html>
