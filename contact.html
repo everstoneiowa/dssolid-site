@@ -429,7 +429,8 @@
       })
       .catch((err) => {
         console.error('EmailJS error:', err);
-        setStatus('err', 'Something went wrong sending your message. Please email <a href="mailto:dssolidconstruction@gmail.com">dssolidconstruction@gmail.com</a> or call <a href="tel:5154181025">515-418-1025</a>.');
+        const detail = (err && (err.text || err.message)) ? ' (' + (err.text || err.message) + ')' : '';
+        setStatus('err', 'Something went wrong sending your message' + detail + '. Please email <a href="mailto:dssolidconstruction@gmail.com">dssolidconstruction@gmail.com</a> or call <a href="tel:5154181025">515-418-1025</a>.');
       })
       .finally(() => {
         btn.disabled = false;
