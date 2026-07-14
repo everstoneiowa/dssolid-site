@@ -13,6 +13,7 @@
 <meta property="og:url" content="https://www.dssolidconstruction.com/gallery.html" />
 <meta property="og:image" content="https://www.dssolidconstruction.com/home-exterior-twilight.webp" />
 <meta name="twitter:card" content="summary_large_image" />
+<meta name="theme-color" content="#141414" />
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -53,7 +54,7 @@
     overflow-x:hidden;
   }
 
-  img{display:block;max-width:100%}
+  img{display:block;max-width:100%;height:auto}
   a{color:inherit;text-decoration:none}
 
   ::selection{background:var(--brass);color:#fff}
@@ -74,7 +75,7 @@
     font-family:var(--display);
     font-weight:700;
     line-height:1.02;
-    letter-spacing:-.015em;
+    letter-spacing:-.015em;text-wrap:balance;
   }
 
   .btn{
@@ -86,8 +87,10 @@
     border:1px solid var(--ink);
     background:var(--ink);color:var(--bg);
     border-radius:0;
-    transition:transform .25s ease, background .25s ease, color .25s ease;
+    transition:transform .25s ease, background-color .25s ease, color .25s ease;
     cursor:pointer;
+    touch-action:manipulation;
+    -webkit-tap-highlight-color:transparent;
   }
   .btn:hover{background:var(--brass);border-color:var(--brass);color:#fff;transform:translateY(-2px)}
   .btn--ghost{background:transparent;color:var(--ink);border-color:var(--line-dark)}
@@ -139,15 +142,15 @@
   .navlinks .cta:hover{background:var(--ink);color:var(--bg)}
 
   .burger{display:none;flex-direction:column;gap:5px;background:none;border:0;cursor:pointer;padding:8px}
-  .burger span{width:24px;height:2px;background:var(--ink);transition:.3s}
+  .burger span{width:24px;height:2px;background:var(--ink);transition:background-color .3s ease}
 
   /* mobile menu */
   .mmenu{
     position:fixed;inset:0;z-index:90;background:var(--ink);color:var(--bg);
-    transform:translateY(-100%);transition:transform .45s cubic-bezier(.7,0,.2,1);
-    display:flex;flex-direction:column;padding:28px var(--gut);
+    transform:translateY(-100%);visibility:hidden;transition:transform .45s cubic-bezier(.7,0,.2,1),visibility .45s;
+    display:flex;flex-direction:column;padding:28px var(--gut);overscroll-behavior:contain;
   }
-  .mmenu.open{transform:translateY(0)}
+  .mmenu.open{transform:translateY(0);visibility:visible}
   .mmenu .top{display:flex;justify-content:space-between;align-items:center;margin-bottom:48px}
   .mmenu .brand b{color:var(--brass-light)}
   .mmenu .brand span{color:#777777}
@@ -225,14 +228,14 @@
   /* ---------- gallery ---------- */
   .gallery{column-count:3;column-gap:14px}
   .gitem{
-    break-inside:avoid;margin-bottom:14px;position:relative;cursor:pointer;overflow:hidden;background:var(--ink);
+    break-inside:avoid;margin-bottom:14px;position:relative;cursor:pointer;overflow:hidden;background:var(--ink);border:0;padding:0;width:100%;display:block;text-align:left;font:inherit;color:inherit;
   }
   .gitem img{width:100%;transition:transform .7s cubic-bezier(.2,.7,.2,1),opacity .6s;opacity:.96}
   .gitem:hover img{transform:scale(1.05);opacity:1}
   .gitem::after{
     content:"⤢ View";position:absolute;left:14px;bottom:12px;
     font-family:var(--mono);font-size:11px;letter-spacing:.1em;color:#fff;
-    background:rgba(18,18,18,.7);padding:6px 11px;opacity:0;transform:translateY(6px);transition:.3s;
+    background:rgba(18,18,18,.7);padding:6px 11px;opacity:0;transform:translateY(6px);transition:opacity .3s ease,transform .3s ease;
   }
   .gitem:hover::after{opacity:1;transform:translateY(0)}
 
@@ -287,7 +290,7 @@
   .footbar p{font-family:var(--mono);font-size:12px;letter-spacing:.04em;color:#777777}
 
   /* ---------- lightbox ---------- */
-  .lb{position:fixed;inset:0;z-index:120;background:rgba(12,12,12,.96);display:none;align-items:center;justify-content:center}
+  .lb{position:fixed;inset:0;z-index:120;background:rgba(12,12,12,.96);display:none;align-items:center;justify-content:center;overscroll-behavior:contain}
   .lb.open{display:flex}
   .lb img{max-width:90vw;max-height:84vh;object-fit:contain;box-shadow:0 30px 80px rgba(0,0,0,.5)}
   .lb__btn{position:absolute;background:none;border:0;color:#fff;font-family:var(--mono);cursor:pointer;user-select:none}
@@ -331,6 +334,10 @@
     .footbar{flex-direction:column;align-items:flex-start}
   }
 
+
+  .skip{position:absolute;left:-999px;top:0;z-index:200;background:var(--ink);color:#fff;font-family:var(--mono);font-size:13px;padding:12px 18px}
+  .skip:focus{left:8px;top:8px}
+  #main{scroll-margin-top:90px}
   :focus-visible{outline:2px solid var(--brass);outline-offset:3px}
 
   .gpage-hero{background:var(--ink);color:var(--bg);padding:clamp(56px,8vw,96px) 0 clamp(40px,6vw,64px)}
@@ -341,6 +348,7 @@
 </style>
 </head>
 <body>
+<a class="skip" href="#main">Skip to content</a>
 
 <!-- announcement -->
 <div class="anno">
@@ -352,7 +360,7 @@
 <!-- header -->
 <header>
   <div class="wrap nav">
-    <a class="brand" href="index.html#top"><img class="brandlogo" src="ds-solid-logo.png" alt="DS Solid Construction"></a>
+    <a class="brand" href="index.html#top"><img class="brandlogo" src="ds-solid-logo.png" width="1284" height="642" alt="DS Solid Construction"></a>
     <nav class="navlinks">
       <a href="available-homes.html">Available Homes</a>
       <a href="floor-plans.html">Floor Plans</a>
@@ -360,7 +368,7 @@
       <a href="about.html">About</a>
       <a class="cta" href="contact.html">Contact</a>
     </nav>
-    <button class="burger" id="burger" aria-label="Open menu">
+    <button class="burger" id="burger" aria-label="Open menu" aria-expanded="false" aria-controls="mmenu">
       <span></span><span></span><span></span>
     </button>
   </div>
@@ -369,7 +377,7 @@
 <!-- mobile menu -->
 <div class="mmenu" id="mmenu">
   <div class="top">
-    <span class="brand"><img class="brandlogo" src="ds-solid-logo-white.png" alt="DS Solid Construction"></span>
+    <span class="brand"><img class="brandlogo" src="ds-solid-logo-white.png" width="1284" height="642" alt="DS Solid Construction"></span>
     <button class="mclose" id="mclose" aria-label="Close menu">✕</button>
   </div>
   <nav>
@@ -387,7 +395,7 @@
 </div>
 
 <!-- page hero -->
-<section class="gpage-hero">
+<section class="gpage-hero" id="main" tabindex="-1">
   <div class="wrap">
     <span class="label">A-02 · Our work</span>
     <h1>A look at homes we have built.</h1>
@@ -411,7 +419,7 @@
   <div class="wrap">
     <div class="foot">
       <div class="fbrand">
-        <div class="brand"><img class="brandlogo" src="ds-solid-logo-white.png" alt="DS Solid Construction"></div>
+        <div class="brand"><img class="brandlogo" src="ds-solid-logo-white.png" width="1284" height="642" alt="DS Solid Construction"></div>
         <p class="blurb">Custom home builder serving central Iowa since 2005. Over 1,600 homes built, and we are just getting started.</p>
         <div class="socials">
           <a href="https://www.facebook.com/DSSolidConstruction/" aria-label="Facebook" target="_blank" rel="noopener">
@@ -449,7 +457,7 @@
 </footer>
 
 <!-- lightbox -->
-<div class="lb" id="lb" aria-hidden="true">
+<div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Photo viewer" aria-hidden="true">
   <button class="lb__btn lb__close" id="lbClose" aria-label="Close">✕</button>
   <button class="lb__btn lb__nav lb__prev" id="lbPrev" aria-label="Previous">‹</button>
   <img id="lbImg" src="" alt="">
@@ -463,9 +471,21 @@
 
   // mobile menu
   const mmenu = document.getElementById('mmenu');
-  document.getElementById('burger').addEventListener('click',()=>mmenu.classList.add('open'));
-  document.getElementById('mclose').addEventListener('click',()=>mmenu.classList.remove('open'));
-  mmenu.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>mmenu.classList.remove('open')));
+  const burger = document.getElementById('burger');
+  mmenu.inert = true;
+  function openMenu(){
+    mmenu.classList.add('open'); mmenu.inert = false;
+    burger.setAttribute('aria-expanded','true');
+    const first = mmenu.querySelector('nav a'); if(first) first.focus();
+  }
+  function closeMenu(){
+    mmenu.classList.remove('open'); mmenu.inert = true;
+    burger.setAttribute('aria-expanded','false'); burger.focus();
+  }
+  burger.addEventListener('click', openMenu);
+  document.getElementById('mclose').addEventListener('click', closeMenu);
+  mmenu.querySelectorAll('a').forEach(a=>a.addEventListener('click', closeMenu));
+  document.addEventListener('keydown', e=>{ if(e.key==='Escape' && mmenu.classList.contains('open')) closeMenu(); });
 
   // gallery images (real DS Solid project photos, self-hosted)
   const photos = [
@@ -490,27 +510,41 @@
     {src:'bedroom-upholstered-bed.webp', alt:'Bedroom with upholstered bed and neighborhood view'},
     {src:'primary-bath-double-vanity.webp', alt:'Primary bathroom with double vanity and walk-in shower'}
   ];
+  const IMGD={'home-exterior-twilight.webp':[1536,1024],'kitchen-gold-stools.webp':[1536,1024],'living-stone-fireplace.webp':[1536,1024],'kitchen-white-black-hardware.webp':[1536,1009],'living-open-concept-beams.webp':[1536,1024],'primary-bath-double-vanity.webp':[1536,1024],'home-exterior-day.webp':[1536,1004],'kitchen-island-black.webp':[1536,1024],'living-gray-sofas.webp':[1536,1024],'great-room-open.webp':[1536,1023],'bath-marble-shower.webp':[1536,1024],'living-fireplace-chairs.webp':[1536,1024],'kitchen-wood-stools.webp':[1536,1003],'living-navy-sofas.webp':[1536,1014],'walk-in-closet.webp':[1536,999],'closet-window-bench.webp':[1536,1024],'mudroom-lockers.webp':[1536,1024],'bath-tub-shower-tile.webp':[1536,1024],'kitchen-range-hood.webp':[1536,1012],'bedroom-upholstered-bed.webp':[1536,1013]};
   const gallery = document.getElementById('gallery');
   photos.forEach((p,i)=>{
-    const d = document.createElement('div');
+    const d = document.createElement('button');
+    d.type='button';
     d.className='gitem';
     d.dataset.idx=i;
-    d.innerHTML=`<img loading="lazy" src="${p.src}" alt="${p.alt}">`;
+    d.setAttribute('aria-label','View photo: '+p.alt);
+    const dm = IMGD[p.src] || [1536,1024];
+    d.innerHTML=`<img loading="lazy" src="${p.src}" width="${dm[0]}" height="${dm[1]}" alt="${p.alt}">`;
     gallery.appendChild(d);
   });
 
   // lightbox
   const lb=document.getElementById('lb'), lbImg=document.getElementById('lbImg'),
         lbCount=document.getElementById('lbCount');
-  let cur=0;
+  let cur=0, lbOpener=null;
   function show(i){
     cur=(i+photos.length)%photos.length;
     lbImg.src=photos[cur].src;
     lbImg.alt=photos[cur].alt;
     lbCount.textContent=`${String(cur+1).padStart(2,'0')} / ${String(photos.length).padStart(2,'0')}`;
   }
-  function open(i){show(i);lb.classList.add('open');lb.setAttribute('aria-hidden','false')}
-  function close(){lb.classList.remove('open');lb.setAttribute('aria-hidden','true');lbImg.src=''}
+  function open(i){
+    lbOpener=document.activeElement;
+    show(i);
+    lb.classList.add('open');lb.setAttribute('aria-hidden','false');
+    document.body.style.overflow='hidden';
+    document.getElementById('lbClose').focus();
+  }
+  function close(){
+    lb.classList.remove('open');lb.setAttribute('aria-hidden','true');lbImg.src='';
+    document.body.style.overflow='';
+    if(lbOpener&&lbOpener.focus)lbOpener.focus();
+  }
   gallery.addEventListener('click',e=>{const g=e.target.closest('.gitem');if(g)open(+g.dataset.idx)});
   document.getElementById('lbClose').addEventListener('click',close);
   document.getElementById('lbPrev').addEventListener('click',e=>{e.stopPropagation();show(cur-1)});
@@ -521,6 +555,11 @@
     if(e.key==='Escape')close();
     if(e.key==='ArrowLeft')show(cur-1);
     if(e.key==='ArrowRight')show(cur+1);
+    if(e.key==='Tab'){
+      const fs=lb.querySelectorAll('button'), first=fs[0], last=fs[fs.length-1];
+      if(e.shiftKey&&document.activeElement===first){e.preventDefault();last.focus();}
+      else if(!e.shiftKey&&document.activeElement===last){e.preventDefault();first.focus();}
+    }
   });
 
   // scroll reveal

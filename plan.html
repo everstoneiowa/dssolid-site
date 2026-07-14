@@ -6,6 +6,7 @@
 <title>Floor Plan | DS Solid Construction</title>
 <meta name="description" content="Floor plan details from DS Solid Construction, a custom home builder in central Iowa." />
 <meta name="robots" content="index,follow" />
+<meta name="theme-color" content="#141414" />
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -25,14 +26,14 @@
   html{scroll-behavior:smooth}
   @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
   body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:18px;line-height:1.62;-webkit-font-smoothing:antialiased;overflow-x:hidden}
-  img{display:block;max-width:100%}
+  img{display:block;max-width:100%;height:auto}
   a{color:inherit;text-decoration:none}
   ::selection{background:var(--brass);color:#fff}
 
   .wrap{max-width:var(--maxw);margin:0 auto;padding-inline:var(--gut)}
   .label{font-family:var(--mono);font-size:12px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:var(--brass)}
-  .display{font-family:var(--display);font-weight:700;line-height:1.02;letter-spacing:-.015em}
-  .btn{display:inline-flex;align-items:center;gap:.6em;font-family:var(--mono);font-size:13px;font-weight:500;letter-spacing:.05em;text-transform:uppercase;padding:15px 26px;border:1px solid var(--ink);background:var(--ink);color:var(--bg);transition:transform .25s ease,background .25s ease,color .25s ease;cursor:pointer}
+  .display{font-family:var(--display);font-weight:700;line-height:1.02;letter-spacing:-.015em;text-wrap:balance}
+  .btn{display:inline-flex;align-items:center;gap:.6em;font-family:var(--mono);font-size:13px;font-weight:500;letter-spacing:.05em;text-transform:uppercase;padding:15px 26px;border:1px solid var(--ink);background:var(--ink);color:var(--bg);transition:transform .25s ease,background .25s ease,color .25s ease;cursor:pointer;touch-action:manipulation;-webkit-tap-highlight-color:transparent}
   .btn:hover{background:var(--brass);border-color:var(--brass);color:#fff;transform:translateY(-2px)}
   .btn--ghost{background:transparent;color:var(--ink);border-color:var(--line-dark)}
   .btn--ghost:hover{background:var(--ink);color:var(--bg);border-color:var(--ink)}
@@ -63,11 +64,11 @@
   .navlinks .cta::after{display:none}
   .navlinks .cta:hover{background:var(--ink);color:var(--bg)}
   .burger{display:none;flex-direction:column;gap:5px;background:none;border:0;cursor:pointer;padding:8px}
-  .burger span{width:24px;height:2px;background:var(--ink);transition:.3s}
+  .burger span{width:24px;height:2px;background:var(--ink);transition:background-color .3s ease}
 
   /* mobile menu */
-  .mmenu{position:fixed;inset:0;z-index:90;background:var(--ink);color:var(--bg);transform:translateY(-100%);transition:transform .45s cubic-bezier(.7,0,.2,1);display:flex;flex-direction:column;padding:28px var(--gut)}
-  .mmenu.open{transform:translateY(0)}
+  .mmenu{position:fixed;inset:0;z-index:90;background:var(--ink);color:var(--bg);transform:translateY(-100%);visibility:hidden;transition:transform .45s cubic-bezier(.7,0,.2,1),visibility .45s;display:flex;flex-direction:column;padding:28px var(--gut);overscroll-behavior:contain}
+  .mmenu.open{transform:translateY(0);visibility:visible}
   .mmenu .top{display:flex;justify-content:space-between;align-items:center;margin-bottom:48px}
   .mclose{background:none;border:0;color:var(--bg);font-family:var(--mono);font-size:26px;cursor:pointer;line-height:1}
   .mmenu nav{display:flex;flex-direction:column;gap:2px;margin-top:8px}
@@ -97,11 +98,11 @@
   /* gallery */
   section.block{padding-block:clamp(48px,7vw,88px)}
   .pgallery{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
-  .pgallery .gitem{position:relative;overflow:hidden;background:var(--ink);cursor:pointer;aspect-ratio:4/3}
+  .pgallery .gitem{position:relative;overflow:hidden;background:var(--ink);cursor:pointer;aspect-ratio:4/3;border:0;padding:0;width:100%;display:block}
   .pgallery .gitem.lead{grid-column:1/-1;aspect-ratio:16/9}
   .pgallery .gitem img{width:100%;height:100%;object-fit:cover;transition:transform .7s cubic-bezier(.2,.7,.2,1);opacity:.97}
   .pgallery .gitem:hover img{transform:scale(1.04);opacity:1}
-  .pgallery .gitem::after{content:"⤢";position:absolute;right:12px;bottom:10px;font-family:var(--mono);font-size:14px;color:#fff;background:rgba(18,18,18,.6);padding:5px 9px;opacity:0;transition:.3s}
+  .pgallery .gitem::after{content:"⤢";position:absolute;right:12px;bottom:10px;font-family:var(--mono);font-size:14px;color:#fff;background:rgba(18,18,18,.6);padding:5px 9px;opacity:0;transition:opacity .3s ease}
   .pgallery .gitem:hover::after{opacity:1}
 
   .pdesc{max-width:70ch;margin-top:44px}
@@ -134,7 +135,7 @@
   .footbar p{font-family:var(--mono);font-size:12px;letter-spacing:.04em;color:#777777}
 
   /* lightbox */
-  .lb{position:fixed;inset:0;z-index:120;background:rgba(12,12,12,.96);display:none;align-items:center;justify-content:center}
+  .lb{position:fixed;inset:0;z-index:120;background:rgba(12,12,12,.96);display:none;align-items:center;justify-content:center;overscroll-behavior:contain}
   .lb.open{display:flex}
   .lb img{max-width:90vw;max-height:84vh;object-fit:contain}
   .lb__btn{position:absolute;background:none;border:0;color:#fff;font-family:var(--mono);cursor:pointer;user-select:none}
@@ -155,10 +156,15 @@
     .foot{grid-template-columns:1fr}
     .footbar{flex-direction:column;align-items:flex-start}
   }
+
+  .skip{position:absolute;left:-999px;top:0;z-index:200;background:var(--ink);color:#fff;font-family:var(--mono);font-size:13px;padding:12px 18px}
+  .skip:focus{left:8px;top:8px}
+  #main{scroll-margin-top:90px}
   :focus-visible{outline:2px solid var(--brass);outline-offset:3px}
 </style>
 </head>
 <body>
+<a class="skip" href="#main">Skip to content</a>
 
 <!-- announcement -->
 <div class="anno">
@@ -170,7 +176,7 @@
 <!-- header -->
 <header>
   <div class="wrap nav">
-    <a class="brand" href="index.html"><img class="brandlogo" src="ds-solid-logo.png" alt="DS Solid Construction"></a>
+    <a class="brand" href="index.html"><img class="brandlogo" src="ds-solid-logo.png" width="1284" height="642" alt="DS Solid Construction"></a>
     <nav class="navlinks">
       <a href="available-homes.html">Available Homes</a>
       <a href="floor-plans.html" class="active">Floor Plans</a>
@@ -178,14 +184,14 @@
       <a href="about.html">About</a>
       <a class="cta" href="contact.html">Contact</a>
     </nav>
-    <button class="burger" id="burger" aria-label="Open menu"><span></span><span></span><span></span></button>
+    <button class="burger" id="burger" aria-label="Open menu" aria-expanded="false" aria-controls="mmenu"><span></span><span></span><span></span></button>
   </div>
 </header>
 
 <!-- mobile menu -->
 <div class="mmenu" id="mmenu">
   <div class="top">
-    <span class="brand"><img class="brandlogo" src="ds-solid-logo-white.png" alt="DS Solid Construction"></span>
+    <span class="brand"><img class="brandlogo" src="ds-solid-logo-white.png" width="1284" height="642" alt="DS Solid Construction"></span>
     <button class="mclose" id="mclose" aria-label="Close menu">✕</button>
   </div>
   <nav>
@@ -204,14 +210,14 @@
 </div>
 
 <!-- detail content (filled by JS from the PLANS data below) -->
-<main id="planMain"></main>
+<main id="main" tabindex="-1"><div id="planMain"></div></main>
 
 <!-- footer -->
 <footer>
   <div class="wrap">
     <div class="foot">
       <div class="fbrand">
-        <div class="brand"><img class="brandlogo" src="ds-solid-logo-white.png" alt="DS Solid Construction"></div>
+        <div class="brand"><img class="brandlogo" src="ds-solid-logo-white.png" width="1284" height="642" alt="DS Solid Construction"></div>
         <p class="blurb">Custom home builder serving central Iowa since 2005. Over 1,600 homes built, and we are just getting started.</p>
         <div class="socials">
           <a href="https://www.facebook.com/DSSolidConstruction/" aria-label="Facebook" target="_blank" rel="noopener"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M22 12a10 10 0 1 0-11.6 9.9v-7H7.9V12h2.5V9.8c0-2.5 1.5-3.9 3.8-3.9 1.1 0 2.2.2 2.2.2v2.5h-1.2c-1.2 0-1.6.8-1.6 1.6V12h2.7l-.4 2.9h-2.3v7A10 10 0 0 0 22 12z"/></svg></a>
@@ -245,7 +251,7 @@
 </footer>
 
 <!-- lightbox -->
-<div class="lb" id="lb" aria-hidden="true">
+<div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Photo viewer" aria-hidden="true">
   <button class="lb__btn lb__close" id="lbClose" aria-label="Close">✕</button>
   <button class="lb__btn lb__nav lb__prev" id="lbPrev" aria-label="Previous">‹</button>
   <img id="lbImg" src="" alt="">
@@ -256,9 +262,21 @@
 <script>
   document.getElementById('yr').textContent = new Date().getFullYear();
   const mmenu = document.getElementById('mmenu');
-  document.getElementById('burger').addEventListener('click',()=>mmenu.classList.add('open'));
-  document.getElementById('mclose').addEventListener('click',()=>mmenu.classList.remove('open'));
-  mmenu.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>mmenu.classList.remove('open')));
+  const burger = document.getElementById('burger');
+  mmenu.inert = true;
+  function openMenu(){
+    mmenu.classList.add('open'); mmenu.inert = false;
+    burger.setAttribute('aria-expanded','true');
+    const first = mmenu.querySelector('nav a'); if(first) first.focus();
+  }
+  function closeMenu(){
+    mmenu.classList.remove('open'); mmenu.inert = true;
+    burger.setAttribute('aria-expanded','false'); burger.focus();
+  }
+  burger.addEventListener('click', openMenu);
+  document.getElementById('mclose').addEventListener('click', closeMenu);
+  mmenu.querySelectorAll('a').forEach(a=>a.addEventListener('click', closeMenu));
+  document.addEventListener('keydown', e=>{ if(e.key==='Escape' && mmenu.classList.contains('open')) closeMenu(); });
 
   /* =====================================================================
      PLAN DATA  ->  one entry per floor plan.
@@ -431,7 +449,7 @@
     const galleryHtml = imgs.length ? `
       <section class="block"><div class="wrap">
         <div class="pgallery" id="pgallery">
-          ${imgs.map((src,i)=>`<div class="gitem ${i===0?'lead':''}" data-i="${i}"><img src="${esc(src)}" alt="${esc(plan.name)} plan photo ${i+1}" loading="${i===0?'eager':'lazy'}"></div>`).join('')}
+          ${imgs.map((src,i)=>`<button type="button" class="gitem ${i===0?'lead':''}" data-i="${i}" aria-label="View ${esc(plan.name)} photo ${i+1}"><img src="${esc(src)}" alt="${esc(plan.name)} plan photo ${i+1}" loading="${i===0?'eager':'lazy'}"${i===0?' fetchpriority="high"':''}></button>`).join('')}
         </div>
         ${hasBlurb ? `<div class="pdesc"><h2 class="display">About the ${esc(plan.name)}</h2>${plan.blurb.split('\n').filter(Boolean).map(p=>`<p>${esc(p)}</p>`).join('')}</div>` : ''}
         ${needsContent ? `<div class="editnote">Editor note (delete when done): this plan still needs ${imgs.length<=1?'more photos':''}${(imgs.length<=1 && !hasBlurb)?' and ':''}${!hasBlurb?'a description':''}. Add them in the PLANS data near the bottom of plan.html.</div>` : ''}
@@ -454,17 +472,17 @@
 
     // lightbox
     const lb=document.getElementById('lb'), lbImg=document.getElementById('lbImg'), lbCount=document.getElementById('lbCount');
-    let cur=0;
+    let cur=0, lbOpener=null;
     const show=i=>{cur=(i+imgs.length)%imgs.length;lbImg.src=imgs[cur];lbImg.alt=plan.name+' photo '+(cur+1);lbCount.textContent=`${String(cur+1).padStart(2,'0')} / ${String(imgs.length).padStart(2,'0')}`;};
-    const open=i=>{show(i);lb.classList.add('open');lb.setAttribute('aria-hidden','false');};
-    const close=()=>{lb.classList.remove('open');lb.setAttribute('aria-hidden','true');lbImg.src='';};
+    const open=i=>{lbOpener=document.activeElement;show(i);lb.classList.add('open');lb.setAttribute('aria-hidden','false');document.body.style.overflow='hidden';document.getElementById('lbClose').focus();};
+    const close=()=>{lb.classList.remove('open');lb.setAttribute('aria-hidden','true');lbImg.src='';document.body.style.overflow='';if(lbOpener&&lbOpener.focus)lbOpener.focus();};
     const pg=document.getElementById('pgallery');
     if(pg){pg.addEventListener('click',e=>{const g=e.target.closest('.gitem');if(g)open(+g.dataset.i);});}
     document.getElementById('lbClose').addEventListener('click',close);
     document.getElementById('lbPrev').addEventListener('click',e=>{e.stopPropagation();show(cur-1);});
     document.getElementById('lbNext').addEventListener('click',e=>{e.stopPropagation();show(cur+1);});
     lb.addEventListener('click',e=>{if(e.target===lb)close();});
-    document.addEventListener('keydown',e=>{if(!lb.classList.contains('open'))return;if(e.key==='Escape')close();if(e.key==='ArrowLeft')show(cur-1);if(e.key==='ArrowRight')show(cur+1);});
+    document.addEventListener('keydown',e=>{if(!lb.classList.contains('open'))return;if(e.key==='Escape')close();if(e.key==='ArrowLeft')show(cur-1);if(e.key==='ArrowRight')show(cur+1);if(e.key==='Tab'){const fs=lb.querySelectorAll('button'),first=fs[0],last=fs[fs.length-1];if(e.shiftKey&&document.activeElement===first){e.preventDefault();last.focus();}else if(!e.shiftKey&&document.activeElement===last){e.preventDefault();first.focus();}}});
   }
 </script>
 </body>
