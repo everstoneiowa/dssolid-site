@@ -284,7 +284,7 @@
       <button type="button" class="cfilter" data-community="deer-creek" aria-pressed="false">The Crossings at Deer Creek</button>
       <button type="button" class="cfilter" data-community="pine-lake" aria-pressed="false">Pine Lake Estates</button>
     </div>
-    <div class="count" id="homeCount" aria-live="polite"><b>3</b> homes available</div>
+    <div class="count" id="homeCount" aria-live="polite"><b>5</b> homes available</div>
   </div>
 </div>
 
@@ -300,9 +300,73 @@
            - Price / address / specs / description: edit the text below.
            - Zillow link: update the href on the "View on Zillow" button.
            To remove a sold home, delete its whole <article class="listing"> block.
+           NEWEST FIRST: when adding a new home, paste its <article> block
+           at the TOP of this list (right after this comment), ahead of all
+           existing listings, so newest listings always show first.
       ========================================================== -->
 
-      <!-- LISTING 1 -->
+      <!-- LISTING 1 (newest) -->
+      <article class="listing reveal" data-community="pine-lake">
+        <div class="listing__media">
+          <span class="listing__status">New construction</span>
+          <img src="1603-ne-19th-st.webp" alt="1603 NE 19th St, Ankeny, exterior" loading="lazy">
+        </div>
+        <div class="listing__body">
+          <div class="listing__price">$950,000</div>
+          <div class="listing__addr">1603 NE 19th St, Ankeny, IA 50021</div>
+          <div class="listing__specs">
+            <div class="lspec"><span class="v">6</span><span class="k">Beds</span></div>
+            <div class="lspec"><span class="v">5</span><span class="k">Baths</span></div>
+            <div class="lspec"><span class="v">3,718</span><span class="k">Sq Ft</span></div>
+            <div class="lspec"><span class="v">3</span><span class="k">Car Garage</span></div>
+          </div>
+          <p class="listing__desc">A 6-bedroom, 5-bath home on a fully irrigated .6-acre corner lot in Pine Lake Estates, with 9 to 12-foot ceilings, custom woodworking, dual-zone climate control, a large basement wet bar, and a covered deck. The primary suite includes a massive custom closet and a soaking tub and tile shower.</p>
+          <div class="tags">
+            <span class="tag2">Ranch</span>
+            <span class="tag2">Corner lot, .6 acres</span>
+            <span class="tag2">Wet bar</span>
+            <span class="tag2">Covered deck</span>
+            <span class="tag2">Built 2026</span>
+          </div>
+          <div class="listing__foot">
+            <a class="btn" href="https://www.zillow.com/homedetails/1603-NE-19th-St-Ankeny-IA-50021/460849328_zpid/" target="_blank" rel="noopener">View on Zillow <span class="arr">→</span></a>
+            <span class="listing__mls">MLS #746256 · RE/MAX Precision</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- LISTING 2 (newest) -->
+      <article class="listing reveal" data-community="pine-lake">
+        <div class="listing__media">
+          <span class="listing__status">New construction</span>
+          <!-- Photo from the Zillow listing. To self-host, save the photo and use src="1611-ne-threshold.webp" -->
+          <img src="https://cdn.listingphotos.sierrastatic.com/large/v1786454895/229/229_746658_01.jpg" alt="1611 NE Threshold Dr, Ankeny, exterior" loading="lazy">
+        </div>
+        <div class="listing__body">
+          <div class="listing__price">$549,900</div>
+          <div class="listing__addr">1611 NE Threshold Dr, Ankeny, IA 50021</div>
+          <div class="listing__specs">
+            <div class="lspec"><span class="v">5</span><span class="k">Beds</span></div>
+            <div class="lspec"><span class="v">3</span><span class="k">Baths</span></div>
+            <div class="lspec"><span class="v">1,585</span><span class="k">Sq Ft Main</span></div>
+            <div class="lspec"><span class="v">3</span><span class="k">Car Garage</span></div>
+          </div>
+          <p class="listing__desc">A walkout ranch with 5 bedrooms and 3 baths, over 2,800 square feet of finished living space between the main level and the finished walkout lower level. Impressive 9, 10, and 11-foot ceilings on the main floor, a wet bar downstairs, and a covered deck and patio out back.</p>
+          <div class="tags">
+            <span class="tag2">Ranch</span>
+            <span class="tag2">Walkout lot</span>
+            <span class="tag2">~2,785 finished sq ft</span>
+            <span class="tag2">Wet bar</span>
+            <span class="tag2">Built 2026</span>
+          </div>
+          <div class="listing__foot">
+            <a class="btn" href="https://www.zillow.com/homedetails/1611-NE-Threshold-Dr-Ankeny-IA-50021/457239942_zpid/" target="_blank" rel="noopener">View on Zillow <span class="arr">→</span></a>
+            <span class="listing__mls">MLS #746658 · RE/MAX Precision</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- LISTING 3 -->
       <article class="listing reveal" data-community="deer-creek">
         <div class="listing__media">
           <span class="listing__status">New construction</span>
@@ -332,7 +396,7 @@
         </div>
       </article>
 
-      <!-- LISTING 2 -->
+      <!-- LISTING 4 -->
       <article class="listing reveal" data-community="deer-creek">
         <div class="listing__media">
           <span class="listing__status">New construction</span>
@@ -363,7 +427,7 @@
         </div>
       </article>
 
-      <!-- LISTING 3 -->
+      <!-- LISTING 5 -->
       <article class="listing reveal" data-community="deer-creek">
         <div class="listing__media">
           <span class="listing__status">New construction</span>
@@ -555,7 +619,13 @@
       img:"https://photos.zillowstatic.com/fp/36c14fc5d51321cf453385a0734d77d9-cc_ft_1536.jpg" },
     { lat:41.73766, lng:-93.54431, pin:"$489.9K", price:"$489,900", beds:4, baths:3, sqft:"1,512", address:"708 NE Doe Pointe Dr", area:"Ankeny, IA 50021",
       zillow:"https://www.zillow.com/homedetails/708-NE-Doe-Pointe-Dr-Ankeny-IA-50021/457570529_zpid/",
-      img:"home-exterior-twilight.webp" }
+      img:"home-exterior-twilight.webp" },
+    { lat:41.74998, lng:-93.571126, pin:"$549.9K", price:"$549,900", beds:5, baths:3, sqft:"1,585", address:"1611 NE Threshold Dr", area:"Ankeny, IA 50021",
+      zillow:"https://www.zillow.com/homedetails/1611-NE-Threshold-Dr-Ankeny-IA-50021/457239942_zpid/",
+      img:"https://cdn.listingphotos.sierrastatic.com/large/v1786454895/229/229_746658_01.jpg" },
+    { lat:41.747646, lng:-93.570724, pin:"$950K", price:"$950,000", beds:6, baths:5, sqft:"3,718", address:"1603 NE 19th St", area:"Ankeny, IA 50021",
+      zillow:"https://www.zillow.com/homedetails/1603-NE-19th-St-Ankeny-IA-50021/460849328_zpid/",
+      img:"1603-ne-19th-st.webp" }
   ];
   if (window.L && document.getElementById('homesMap')) {
     const map = L.map('homesMap', { scrollWheelZoom: true }).setView([41.7397, -93.549], 15);
