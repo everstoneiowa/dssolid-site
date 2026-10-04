@@ -284,7 +284,7 @@
       <button type="button" class="cfilter" data-community="deer-creek" aria-pressed="false">The Crossings at Deer Creek</button>
       <button type="button" class="cfilter" data-community="pine-lake" aria-pressed="false">Pine Lake Estates</button>
     </div>
-    <div class="count" id="homeCount" aria-live="polite"><b>2</b> homes available</div>
+    <div class="count" id="homeCount" aria-live="polite"><b>3</b> homes available</div>
   </div>
 </div>
 
@@ -300,12 +300,14 @@
            - Price / address / specs / description: edit the text below.
            - Zillow link: update the href on the "View on Zillow" button.
            To remove a sold home, delete its whole <article class="listing"> block.
-           NEWEST FIRST: when adding a new home, paste its <article> block
-           at the TOP of this list (right after this comment), ahead of all
-           existing listings, so newest listings always show first.
+           PINNED HOMES: 1603 NE 19th St and 1611 NE Threshold Dr always stay
+           at the top, in that order. When adding a new home, paste its
+           <article> block right after the "NEW LISTINGS GO BELOW THIS LINE"
+           marker (below the two pinned homes), so the newest non-pinned
+           listing shows first after them.
       ========================================================== -->
 
-      <!-- LISTING 1 (newest) -->
+      <!-- PINNED 1: always stays at the top -->
       <article class="listing reveal" data-community="pine-lake">
         <div class="listing__media">
           <span class="listing__status">New construction</span>
@@ -335,7 +337,7 @@
         </div>
       </article>
 
-      <!-- LISTING 2 -->
+      <!-- PINNED 2: always stays second -->
       <article class="listing reveal" data-community="pine-lake">
         <div class="listing__media">
           <span class="listing__status">New construction</span>
@@ -362,6 +364,39 @@
           <div class="listing__foot">
             <a class="btn" href="https://www.zillow.com/homedetails/1611-NE-Threshold-Dr-Ankeny-IA-50021/457239942_zpid/" target="_blank" rel="noopener">View on Zillow <span class="arr">→</span></a>
             <span class="listing__mls">MLS #746658 · RE/MAX Precision</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- ===== NEW LISTINGS GO BELOW THIS LINE (newest first) ===== -->
+
+      <!-- LISTING -->
+      <article class="listing reveal" data-community="pine-lake">
+        <div class="listing__media">
+          <span class="listing__status">New construction</span>
+          <!-- Photo from the MLS listing. To self-host, save the photo and use src="1615-ne-threshold.webp" -->
+          <img src="https://d36xftgacqn2p.cloudfront.net/listingphotos188/749343-1.jpg?v=1789563941" alt="1615 NE Threshold Dr, Ankeny, exterior" loading="lazy">
+        </div>
+        <div class="listing__body">
+          <div class="listing__price">$549,900</div>
+          <div class="listing__addr">1615 NE Threshold Dr, Ankeny, IA 50021</div>
+          <div class="listing__specs">
+            <div class="lspec"><span class="v">5</span><span class="k">Beds</span></div>
+            <div class="lspec"><span class="v">3</span><span class="k">Baths</span></div>
+            <div class="lspec"><span class="v">1,561</span><span class="k">Sq Ft Main</span></div>
+            <div class="lspec"><span class="v">3</span><span class="k">Car Garage</span></div>
+          </div>
+          <p class="listing__desc">A walkout ranch with 5 bedrooms and 3 baths, with 1,561 square feet on the main level plus 1,250 finished square feet in the walkout lower level, over 2,800 square feet in all. 9, 10, and 11-foot ceilings on the main floor, an eat-in kitchen, two fireplaces, a wet bar downstairs, and a covered deck and patio out back.</p>
+          <div class="tags">
+            <span class="tag2">Ranch</span>
+            <span class="tag2">Walkout lot</span>
+            <span class="tag2">~2,811 finished sq ft</span>
+            <span class="tag2">2 fireplaces</span>
+            <span class="tag2">Built 2026</span>
+          </div>
+          <div class="listing__foot">
+            <a class="btn" href="https://www.zillow.com/homedetails/1615-NE-Threshold-Dr-Ankeny-IA-50021/457240001_zpid/" target="_blank" rel="noopener">View on Zillow <span class="arr">→</span></a>
+            <span class="listing__mls">MLS #749343 · RE/MAX Precision</span>
           </div>
         </div>
       </article>
@@ -519,6 +554,9 @@
 
   // satellite map with home pins
   const HOMES = [
+    { lat:41.750784, lng:-93.570604, pin:"$549.9K", price:"$549,900", beds:5, baths:3, sqft:"1,561", address:"1615 NE Threshold Dr", area:"Ankeny, IA 50021",
+      zillow:"https://www.zillow.com/homedetails/1615-NE-Threshold-Dr-Ankeny-IA-50021/457240001_zpid/",
+      img:"https://d36xftgacqn2p.cloudfront.net/listingphotos188/749343-1.jpg?v=1789563941" },
     { lat:41.74998, lng:-93.571126, pin:"$549.9K", price:"$549,900", beds:5, baths:3, sqft:"1,585", address:"1611 NE Threshold Dr", area:"Ankeny, IA 50021",
       zillow:"https://www.zillow.com/homedetails/1611-NE-Threshold-Dr-Ankeny-IA-50021/457239942_zpid/",
       img:"https://photos.zillowstatic.com/fp/5ebc7aea27085eb71f8e93156c6f9f9d-cc_ft_1536.jpg" },
